@@ -3,7 +3,7 @@ Cordova integration with SumUp's Android and iOS implementations.
 
 # Installation
 Add the plugin:
-cordova plugin add https://github.com/storepilot/cordova-plugin-sumup --variable SUMUP_API_KEY=INSERT_YOUR_KEY
+cordova plugin add https://github.com/storepilot/cordova-plugin-sumup
 
 # Usage
 Importing the plugin (note, the plugin does NOT use global variables):
