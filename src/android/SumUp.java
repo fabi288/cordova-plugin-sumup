@@ -1,4 +1,4 @@
-package com.nuvopoint.cordova.sumup;
+package com.storepilot.cordova.sumup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,14 +43,20 @@ public class SumUp extends CordovaPlugin {
 
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-    String affiliateKey = this.cordova.getActivity().getString(cordova.getActivity().getResources()
-            .getIdentifier("SUMUP_API_KEY", "string", cordova.getActivity().getPackageName()));
+    // String affiliateKey = this.cordova.getActivity().getString(cordova.getActivity().getResources()
+    // .getIdentifier("SUMUP_API_KEY", "string", cordova.getActivity().getPackageName()));
 
     if (action.equals("login")) {
       Runnable runnable = () -> {
         Object accessToken = null;
+        String affiliateKey = "";
         try {
-          accessToken = args.get(0);
+          affiliateKey = args.get(0).toString();
+        } catch (Exception e) {
+          System.out.println(e.getMessage());
+        }
+        try {
+          accessToken = args.get(1);
         } catch (Exception e) {
           System.out.println(e.getMessage());
         }
@@ -74,7 +80,7 @@ public class SumUp extends CordovaPlugin {
       cordova.getThreadPool().execute(() -> {
         Object accessToken = null;
         try {
-          accessToken = args.get(0);
+          accessToken = args.get(1);
         } catch (Exception e) {
           System.out.println(e.getMessage());
         }

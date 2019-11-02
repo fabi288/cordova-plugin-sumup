@@ -26,7 +26,7 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "com.nuvopoint.cordova.SumUp"
+        applicationId "com.storepilot.cordova.SumUp"
         minSdkVersion 18
         targetSdkVersion 28
         versionCode 1

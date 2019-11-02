@@ -1,9 +1,9 @@
 # Description
-Beta version of a Cordova integration with SumUp's Android and iOS implementations.
+Cordova integration with SumUp's Android and iOS implementations.
 
 # Installation
 Add the plugin:
-cordova plugin add https://github.com/nuvoPoint/cordova-plugin-sumup --variable SUMUP_API_KEY=INSERT_YOUR_KEY
+cordova plugin add https://github.com/storepilot/cordova-plugin-sumup --variable SUMUP_API_KEY=INSERT_YOUR_KEY
 
 # Usage
 Importing the plugin (note, the plugin does NOT use global variables):
@@ -13,7 +13,7 @@ Importing the plugin (note, the plugin does NOT use global variables):
 ## Authenticating
 
 ### Login to SumUp
-`SumUp.login(accessToken?: string): Promise<void>`
+`SumUp.login(apikey, accessToken?: string): Promise<void>`
 
 Supports an optional access token.
 - If no access token is given, a login screen will be shown.
@@ -21,7 +21,7 @@ Supports an optional access token.
 
 After logging in, you need to keep the access token up to date using (expires every hour):
 
-`SumUp.auth(accessToken: string): Promise<void>`
+`SumUp.auth(apikey, accessToken: string): Promise<void>`
 
 Log out using
 `SumUp.logout()`
@@ -76,4 +76,4 @@ interface SumUpPayment {
 Opens the settings page.
 
 # FINAL NOTES
-We've moved away from Cordova, and are not actively supporting this repo at the moment.
+This is forked from https://github.com/nuvoPoint/cordova-plugin-sumup and edited to allow programmable apikey
