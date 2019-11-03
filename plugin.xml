@@ -56,6 +56,6 @@
         </config-file>
         <header-file src="src/ios/CDVSumUp.h" />
         <source-file src="src/ios/CDVSumUp.m" />
-        <framework src="SumUpSDK" type="podspec" spec="~> 3.2.0" />
+        <framework src="SumUpSDK" type="podspec" spec="~> 3.3.0" />
     </platform>
 </plugin>
