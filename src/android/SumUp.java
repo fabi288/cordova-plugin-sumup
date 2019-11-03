@@ -43,8 +43,6 @@ public class SumUp extends CordovaPlugin {
 
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-    // String affiliateKey = this.cordova.getActivity().getString(cordova.getActivity().getResources()
-    // .getIdentifier("SUMUP_API_KEY", "string", cordova.getActivity().getPackageName()));
 
     if (action.equals("login")) {
       Runnable runnable = () -> {
