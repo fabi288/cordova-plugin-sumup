@@ -1,5 +1,5 @@
 #import "CDVSumUp.h"
-#import <SumUpSDK.embeddedframework/SumUpSDK.framework/Versions/A/Headers/SumUpSDK.h>
+#import <SumUpSDK/SumUpSDK.h>
 
 @implementation CDVSumUp
 
