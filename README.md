@@ -77,5 +77,9 @@ interface SumUpPayment {
 
 Opens the settings page.
 
+`SumUp.isloggedin(): Promise<BOOLEAN>`
+
+Checks if User has already logged into SumUp (iOS ONLY)
+
 # FINAL NOTES
 This is forked from https://github.com/nuvoPoint/cordova-plugin-sumup and edited to allow programmable apikey
