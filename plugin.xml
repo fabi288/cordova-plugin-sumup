@@ -58,4 +58,8 @@
         <source-file src="src/ios/CDVSumUp.m" />
         <framework src="SumUpSDK" type="podspec" spec="~> 3.3.0" />
     </platform>
+    
+    <js-module src="www/sumup.js" name="SumUp">
+        <clobbers target="SumUp" />
+    </js-module>
 </plugin>
