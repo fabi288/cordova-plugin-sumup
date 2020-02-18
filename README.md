@@ -6,9 +6,11 @@ Add the plugin:
 cordova plugin add https://github.com/storepilot/cordova-plugin-sumup
 
 # Usage
-Importing the plugin (note, the plugin does NOT use global variables):
+Importing the plugin OR use the global variables
 
 `import * as SumUp from 'cordova-plugin-sumup';`
+
+`window.SumUp OR SumUp`
 
 ## Authenticating
 
