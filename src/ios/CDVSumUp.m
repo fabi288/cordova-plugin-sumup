@@ -6,12 +6,11 @@
 -(void) login:(CDVInvokedUrlCommand *)command {
   [[NSBundle mainBundle] infoDictionary];
   NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-  // NSString* apikey = [infoDict objectForKey:@"SUMUP_API_KEY"];
-  NSString* apikey = [command.arguments objectAtIndex:0];
+  NSString* apikey = [infoDict objectForKey:@"SUMUP_API_KEY"];
   [SMPSumUpSDK setupWithAPIKey:apikey];
   
-  if (command.arguments && [command.arguments count] > 1) {
-    NSString* accessToken = [command.arguments objectAtIndex:1];
+  if (command.arguments && [command.arguments count] > 0) {
+    NSString* accessToken = [command.arguments objectAtIndex:0];
     [SMPSumUpSDK loginWithToken:accessToken completion:^(BOOL success, NSError *error) {
       CDVPluginResult* pluginResult = nil;
       if (success) {
@@ -99,12 +98,11 @@
 -(void) auth:(CDVInvokedUrlCommand *)command {
   [[NSBundle mainBundle] infoDictionary];
   NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
-  // NSString* apikey = [infoDict objectForKey:@"SUMUP_API_KEY"];
-  NSString* apikey = [command.arguments objectAtIndex:0];
+  NSString* apikey = [infoDict objectForKey:@"SUMUP_API_KEY"];
   [SMPSumUpSDK setupWithAPIKey:apikey];
   
-  if (command.arguments && [command.arguments count] > 1) {
-    NSString* accessToken = [command.arguments objectAtIndex:1];
+  if (command.arguments && [command.arguments count] > 0) {
+    NSString* accessToken = [command.arguments objectAtIndex:0];
     [SMPSumUpSDK loginWithToken:accessToken completion:^(BOOL success, NSError *error) {
       CDVPluginResult* pluginResult = nil;
       if (success) {

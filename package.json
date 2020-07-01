@@ -1,17 +1,17 @@
 {
     "name": "cordova-plugin-sumup",
     "description": "Cordova plugin for integration with sumup sdk",
-    "author": "StorePilot",
+    "author": "nuvoPoint",
     "license": "MIT",
     "module": "./www/sumup.js",
-    "version": "1.3.1",
-    "homepage": "https://github.com/storepilot/cordova-plugin-sumup",
+    "version": "1.3.0",
+    "homepage": "https://github.com/nuvoPoint/cordova-plugin-sumup",
     "repository": {
         "type": "git",
-        "url": "https://github.com/storepilot/cordova-plugin-sumup.git"
+        "url": "https://github.com/nuvoPoint/cordova-plugin-sumup.git"
     },
     "bugs": {
-        "url": "https://github.com/storepilot/cordova-plugin-sumup.git/issues"
+        "url": "https://github.com/nuvoPoint/cordova-plugin-sumup.git/issues"
     },
     "cordova": {
         "id": "cordova-plugin-sumup",
@@ -30,6 +30,7 @@
     "engines": {
         "cordova": ">=6.0.0"
     },
+    "typings": "./www/sumup.d.ts",
     "scripts": {
         "lint": "eslint **/*.js",
         "cordova-paramedic": "cordova-paramedic",
