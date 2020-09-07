@@ -70,8 +70,18 @@ public class SumUp extends CordovaPlugin {
       return true;
     }
 
+    if (action.equals("isLoggedIn")) {
+      Runnable runnable = () -> {
+        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, SumUpAPI.isLoggedIn()));
+      };
+      cordova.setActivityResultCallback(this);
+      cordova.getActivity().runOnUiThread(runnable);
+
+      return true;
+    }
+
     if (action.equals("auth")) {
-      cordova.getThreadPool().execute(() -> {
+      Runnable runnable = () -> {
         Object accessToken = null;
         try {
           accessToken = args.get(0);
@@ -87,7 +97,9 @@ public class SumUp extends CordovaPlugin {
         } else {
           callbackContext.error("No accessToken");
         }
-      });
+      };
+      cordova.setActivityResultCallback(this);
+      cordova.getActivity().runOnUiThread(runnable);
 
       return true;
     }
