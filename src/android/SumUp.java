@@ -74,7 +74,6 @@ public class SumUp extends CordovaPlugin {
       Runnable runnable = () -> {
         callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, SumUpAPI.isLoggedIn()));
       };
-      cordova.setActivityResultCallback(this);
       cordova.getActivity().runOnUiThread(runnable);
 
       return true;
