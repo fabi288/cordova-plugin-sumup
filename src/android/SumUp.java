@@ -10,15 +10,16 @@ import org.apache.cordova.PluginResult;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaWebView;
 
-import com.sumup.merchant.api.SumUpState;
-import com.sumup.merchant.api.SumUpAPI;
-import com.sumup.merchant.api.SumUpLogin;
-import com.sumup.merchant.api.SumUpPayment;
-import com.sumup.merchant.cardreader.ReaderLibManager;
-import com.sumup.merchant.CoreState;
-import com.sumup.merchant.Models.TransactionInfo;
-import com.sumup.readerlib.CardReaderManager;
-import com.sumup.merchant.Models.UserModel;
+import com.sumup.merchant.reader.api.SumUpState;
+import com.sumup.merchant.reader.api.SumUpAPI;
+import com.sumup.merchant.reader.api.SumUpPayment;
+
+import com.sumup.merchant.reader.api.SumUpLogin;
+import com.sumup.merchant.reader.cardreader.ReaderCoreManager;
+import com.sumup.merchant.reader.ReaderModuleCoreState;
+import com.sumup.merchant.reader.models.TransactionInfo;
+import com.sumup.reader.core.CardReaderManager;
+import com.sumup.merchant.reader.models.AffiliateModel;
 
 import java.math.BigDecimal;
 
@@ -89,8 +90,8 @@ public class SumUp extends CordovaPlugin {
         }
 
         if (accessToken != null) {
-          UserModel um;
-          um = CoreState.Instance().get(UserModel.class);
+          AffiliateModel um;
+          um = ReaderModuleCoreState.Instance().get(AffiliateModel.class);
           um.setAccessToken(accessToken.toString());
           callbackContext.success();
         } else {
@@ -125,8 +126,8 @@ public class SumUp extends CordovaPlugin {
       Handler handler = new Handler(cordova.getActivity().getMainLooper());
       handler.post(() -> {
 
-        ReaderLibManager rlm;
-        rlm = CoreState.Instance().get(ReaderLibManager.class);
+        ReaderCoreManager rlm;
+        rlm = ReaderModuleCoreState.Instance().get(ReaderCoreManager.class);
 
         if(!rlm.isReadyToTransmit() && CardReaderManager.getInstance() != null) {
           SumUpAPI.prepareForCheckout();
@@ -284,9 +285,9 @@ public class SumUp extends CordovaPlugin {
           } else {
             obj.put("code", code);
 
-            UserModel um;
-            um = CoreState.Instance().get(UserModel.class);
-            if(!um.isLoggedIn()) {
+            AffiliateModel um;
+            um = ReaderModuleCoreState.Instance().get(AffiliateModel.class);
+            if(um.APIInformation().getAccessToken() != null) {
               obj.put("code", SumUpAPI.Response.ResultCode.ERROR_INVALID_TOKEN);
             } else {
               obj.put("code", code);
