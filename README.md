@@ -3,7 +3,7 @@ Beta version of a Cordova integration with SumUp's Android and iOS implementatio
 
 # Installation
 Add the plugin:
-cordova plugin add https://github.com/nuvoPoint/cordova-plugin-sumup --variable SUMUP_API_KEY=INSERT_YOUR_KEY
+cordova plugin add https://github.com/fabi288/cordova-plugin-sumup --variable SUMUP_API_KEY=INSERT_YOUR_KEY
 
 # Usage
 Importing the plugin OR use the global variables
